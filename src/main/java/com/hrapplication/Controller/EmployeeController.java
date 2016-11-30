@@ -19,13 +19,10 @@ public class EmployeeController
     @Autowired
     EmployeeRepository employeeRepo;
 
-    //@Autowired
-    //Employee employee;
 
     public EmployeeController(EmployeeRepository employeeRepo)
     {
         this.employeeRepo = employeeRepo;
-        //this.employee = employee;
     }
 
     @RequestMapping(value = "/createEmployee", method = RequestMethod.POST)
