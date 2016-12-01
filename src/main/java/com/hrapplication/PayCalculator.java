@@ -6,5 +6,5 @@ package com.hrapplication;
 public class PayCalculator
 {
 
-    
+
 }
