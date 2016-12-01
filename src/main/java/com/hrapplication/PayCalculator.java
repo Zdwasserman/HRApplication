@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 
 public class PayCalculator
 {
-
     private Logger log = LoggerFactory.getLogger(PayCalculator.class);
 
     public double calculatePaycheck (Employee employee) {
