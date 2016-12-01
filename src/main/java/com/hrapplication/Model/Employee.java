@@ -1,5 +1,6 @@
 package com.hrapplication.Model;
 
+import com.hrapplication.Types;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -19,10 +20,15 @@ public class Employee
     private int id;
     private String firstName;
     private String lastName;
-    private Enum type;
+
+    @Enumerated(EnumType.STRING)
+    private Types type;
+
     private double widgetSales;
     private int hours;
     private double hourlyRate;
+    private double salary;
+    private double yearToDate;
 
     public Employee(){}
 
@@ -50,11 +56,11 @@ public class Employee
         this.lastName = lastNAme;
     }
 
-    public Enum getType() {
+    public Types getType() {
         return type;
     }
 
-    public void setType(Enum type) {
+    public void setType(Types type) {
         this.type = type;
     }
 
@@ -85,5 +91,29 @@ public class Employee
     public void updateHoursWidgets()
     {
 
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    public double getYearToDate() {
+        return yearToDate;
+    }
+
+    public void setYearToDate(double yearToDate) {
+        this.yearToDate = yearToDate;
     }
 }
