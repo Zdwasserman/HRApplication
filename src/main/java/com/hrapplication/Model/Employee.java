@@ -22,7 +22,7 @@ public class Employee
     private int id;
     private String firstName;
     private String lastNAme;
-    private Enum type;
+    private Type type;
     private double widgetSales;
     private int hours;
     private double hourlyRate;
@@ -53,11 +53,11 @@ public class Employee
         this.lastNAme = lastNAme;
     }
 
-    public Enum getType() {
+    public Type getType() {
         return type;
     }
 
-    public void setType(Enum type) {
+    public void setType(Type type) {
         this.type = type;
     }
 
