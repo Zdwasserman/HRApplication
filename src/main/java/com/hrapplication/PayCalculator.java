@@ -47,9 +47,14 @@ public class PayCalculator
     public Employee payEmployee (Employee employee, double amount) {
         double balance = employee.getYearToDate();
         employee.setYearToDate(balance + amount);
+        employee.setHours(0);
+        employee.setWidgetSales(0);
         return employee;
     }
 
-    
+    public Employee resetYearToDate (Employee employee) {
+        employee.setYearToDate(0);
+        return employee;
+    }
 
 }
