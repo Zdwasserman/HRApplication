@@ -2,26 +2,47 @@ package com.hrapplication;
 
 import com.hrapplication.Model.Employee;
 
-/**
- * Created by zacharywasserman on 11/28/16.
- */
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class PayCalculator
 {
 
-    public Employee calculatePayment (Employee employee) {
+    private Logger log = LoggerFactory.getLogger(PayCalculator.class);
 
-        int balance;
-        int paycheck;
-        Payment getPaycheck;
+    public double calculatePaycheck (Employee employee) {
+
+        double paycheck;
+        Payment payScheme;
 
         switch (employee.getType()) {
-            case SALARY: getPaycheck = (Employee emp) -> {emp.}
-            break;
-            case HOURLY: break;
-            case COMMISSION: break;
+            case SALARY:
+                payScheme = (Employee emp) -> {
+                    return emp.getSalary();
+                };
+                break;
+            case HOURLY:
+                payScheme = (Employee emp) -> {
+                    return emp.getHours() * emp.getHourlyRate();
+                };
+                break;
+            case COMMISION:
+                payScheme = (Employee emp) -> {
+                    return emp.getWidgetSales() * 0.2;
+                };
+                break;
+            default:
+                payScheme = null;
         }
 
-        return employee;
+        try {
+            paycheck = payScheme.calcPay(employee);
+        } catch (NullPointerException e) {
+            log.warn("Invalid employee payment scheme: " + employee.getLastNAme() + ", " + employee.getFirstName());
+            paycheck = 0;
+        }
+
+        return paycheck;
     }
-    
+
 }

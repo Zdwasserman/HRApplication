@@ -7,5 +7,5 @@ import com.hrapplication.Model.Employee;
  */
 public interface Payment {
 
-    int calcPay(Employee employee);
+    double calcPay (Employee employee);
 }
