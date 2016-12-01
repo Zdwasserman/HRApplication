@@ -15,15 +15,17 @@ angular.module('humanResourcesFrontendApp')
       this.employeeID = empID;
       this.hours = hours;
       this.sales = sales;
+      console.log("HELLO TIMECARD");
     }
 
     $scope.submitTimeCard = function() {
       var timeCardToPost = new timecard($scope.empID, $scope.hours, $scope.sales);
       $http({
               method:'POST',
-              url: 'http://localhost:9000/timecards',
-              data: timeCardToPost,
+              url: 'http://localhost:8080/timecards',
+              data: timeCardToPost
               // console.log(timeCardToPost);
             })
+            // console.log("success");
         }
   });
