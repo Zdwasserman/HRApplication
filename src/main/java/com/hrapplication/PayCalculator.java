@@ -37,11 +37,19 @@ public class PayCalculator
         try {
             paycheck = payScheme.calcPay(employee);
         } catch (NullPointerException e) {
-            log.warn("Invalid employee payment scheme: " + employee.getLastNAme() + ", " + employee.getFirstName());
+            log.warn("Invalid employee payment scheme: " + employee.getId());
             paycheck = 0;
         }
 
         return paycheck;
     }
+
+    public Employee payEmployee (Employee employee, double amount) {
+        double balance = employee.getYearToDate();
+        employee.setYearToDate(balance + amount);
+        return employee;
+    }
+
+    
 
 }

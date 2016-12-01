@@ -26,6 +26,7 @@ public class Employee
     private int hours;
     private double hourlyRate;
     private double salary;
+    private double yearToDate;
 
     public Employee(){}
 
@@ -104,5 +105,13 @@ public class Employee
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    public double getYearToDate() {
+        return yearToDate;
+    }
+
+    public void setYearToDate(double yearToDate) {
+        this.yearToDate = yearToDate;
     }
 }
