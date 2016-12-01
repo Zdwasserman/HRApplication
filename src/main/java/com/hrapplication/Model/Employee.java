@@ -28,6 +28,7 @@ public class Employee
     private int hours;
     private double hourlyRate;
     private double salary;
+    @Column(name = "gross_pay_jan1")
     private double yearToDate;
 
     public Employee(){}

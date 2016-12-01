@@ -13,7 +13,7 @@ import java.util.List;
  */
 
 @Transactional
-@RepositoryRestResource(collectionResourceRel = "empolyees", path = "hrApp")
+@RepositoryRestResource(collectionResourceRel = "employees", path = "hrApp")
 public interface EmployeeRepository extends JpaRepository<Employee, Integer>
 {
     public Employee findById(int id);

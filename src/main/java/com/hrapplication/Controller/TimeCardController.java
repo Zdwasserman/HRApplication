@@ -28,8 +28,12 @@ public class TimeCardController
         System.out.println(submitted.getNumHours());
         System.out.println(submitted.getWidgetSales());
 
-        Employee employee =empRepo.findById(submitted.getEmployeeID());
+//        Employee employee = empRepo.findById(submitted.getEmployeeID());
+        Employee employee = empRepo.findOne(submitted.getEmployeeID());
         System.out.println(employee.getFirstName());
+
+        employee.setHours(employee.getHours()+(int) submitted.getNumHours());
+        empRepo.saveAndFlush(employee);
 
         return "{\"name\": \"JOHN LECZNER\"}";
 //        try
