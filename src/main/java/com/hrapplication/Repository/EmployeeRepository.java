@@ -12,5 +12,5 @@ import org.springframework.transaction.annotation.Transactional;
 //@RepositoryRestResource(collectionResourceRel = " ", path = " ")
 public interface EmployeeRepository extends JpaRepository<Employee, Integer>
 {
-
+    public Employee findById(int id);
 }

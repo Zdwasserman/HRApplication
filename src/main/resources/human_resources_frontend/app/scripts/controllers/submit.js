@@ -13,19 +13,26 @@ angular.module('humanResourcesFrontendApp')
     function timecard(empID, hours, sales)
     {
       this.employeeID = empID;
-      this.hours = hours;
-      this.sales = sales;
+      this.numHours = hours;
+      this.widgetSales = sales;
       console.log("HELLO TIMECARD");
     }
 
     $scope.submitTimeCard = function() {
-      var timeCardToPost = new timecard($scope.empID, $scope.hours, $scope.sales);
+      var timeCardToPost = new timecard($scope.employeeID, $scope.hours, $scope.sales);
       $http({
               method:'POST',
               url: 'http://localhost:8080/timecards',
               data: timeCardToPost
               // console.log(timeCardToPost);
             })
-            // console.log("success");
+            .then(function(response)
+            {
+              console.log(response.data);
+            });
+            console.log("success");
+            console.log(timeCardToPost.employeeID);
+            console.log(timeCardToPost.numHours);
+            console.log(timeCardToPost.widgetSales);
         }
   });

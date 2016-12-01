@@ -1,14 +1,12 @@
 package com.hrapplication.Controller;
 
+import com.hrapplication.Model.Employee;
 import com.hrapplication.Model.TimeCard;
 import com.hrapplication.Repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.awt.*;
 
@@ -23,17 +21,25 @@ public class TimeCardController
     EmployeeRepository empRepo;
 
     @RequestMapping(value = "/timecards", method=RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void updateEmployeeHours(@RequestBody TimeCard submitted)
+    public @ResponseBody String updateEmployeeHours(@RequestBody TimeCard submitted)
     {
-        try
-        {
-            System.out.println("Hours: " + submitted.getNumHours());
-        }
-        catch(Exception e)
-        {
-            System.out.println("YOU HAVE ERRED");
-        }
+        System.out.println("HELLO SPRING");
+        System.out.println(submitted.getEmployeeID());
+        System.out.println(submitted.getNumHours());
+        System.out.println(submitted.getWidgetSales());
 
+        Employee employee =empRepo.findById(submitted.getEmployeeID());
+        System.out.println(employee.getFirstName());
+
+        return "{\"name\": \"JOHN LECZNER\"}";
+//        try
+//        {
+//            System.out.println("Hours: " + submitted.getNumHours());
+//        }
+//        catch(Exception e)
+//        {
+//            System.out.println("YOU HAVE ERRED");
+//        }
     }
 
 

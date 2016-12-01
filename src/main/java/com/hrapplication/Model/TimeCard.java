@@ -5,18 +5,18 @@ package com.hrapplication.Model;
  */
 public class TimeCard
 {
-    private int EmployeeID;
+    private int employeeID;
     private double widgetSales;
     private double numHours;
 
     public TimeCard(){}
 
     public int getEmployeeID() {
-        return EmployeeID;
+        return employeeID;
     }
 
     public void setEmployeeID(int employeeID) {
-        EmployeeID = employeeID;
+        this.employeeID = employeeID;
     }
 
     public double getWidgetSales() {
