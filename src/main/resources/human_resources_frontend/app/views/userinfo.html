@@ -1,1 +1,22 @@
 <p>This is the user info view</p>
+<form name ="UserInfo" ng-submit="getEmployeeInfo()">
+  <input type="text" required placeholder="Employee ID" ng-model=employeeID>
+  <input type="submit" value="Display Employee Information">
+</form>
+
+<table ng-show="employee">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Total hours worked since Jan 1</th>
+      <th>Hours worked this pay period</th>
+    </tr>
+  </thead>
+  <tbody>
+      <td>{{employee.firstName}} {{employee.lastName}}</td>
+      <td>{{employee.yearToDate}}</td>
+      <td>{{employee.hours}}</td>
+    </tr>
+
+  </tbody>
+</table>

@@ -38,4 +38,13 @@ public class EmployeeController
         return employeeRepo.findAll();
     }
 
+    @RequestMapping(value="/findID", method = RequestMethod.GET, params="empID")
+    public @ResponseBody Employee getEmployee(@RequestParam("empID") int id)
+    {
+        System.out.println("GETTING EMPLOYEE");
+        return employeeRepo.findOne(id);
+    }
+
+
+
 }
